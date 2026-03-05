@@ -38,9 +38,11 @@ func main() {
 
 	pathFlag := flag.String("path", "/", "Directory to search")
 	countFlag := flag.Int("count", 10, "Number of top files to display")
+	extFlag := flag.String("ext", "", "Filter by file extension (e.g., .go, .txt)")
+	parallelFlag := flag.Bool("parallel", false, "Use parallel crawling for large directories")
 	flag.Parse()
 
-	files, errors := crawler.CrawlFiles(*pathFlag)
+	files, errors := crawler.CrawlFiles(*pathFlag, *extFlag, *parallelFlag)
 
 	sorter.SortFiles(files)
 

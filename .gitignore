@@ -1,0 +1,6 @@
+gofind
+*.exe
+*.test
+*.out
+/tmp/
+.DS_Store
